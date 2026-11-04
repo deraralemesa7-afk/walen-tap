@@ -1,20 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#080e1b"><title>WALEN TAP</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#080e1b">
+<title>WALEN TAP</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 :root{--bg:#080e1b;--panel:#111c30;--gold:#f4c45e;--muted:#91a0b8;--line:#263650}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 10%,#1a2b48 0,#080e1b 55%);color:#f7f8fc;font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh}
-main{max-width:520px;margin:auto;padding:20px 17px 32px}.top{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;letter-spacing:2px;font-size:20px}.brand span{color:var(--gold)}.tag{font-size:10px;color:var(--gold);border:1px solid #725b2b;padding:6px 9px;border-radius:20px}
-.welcome{color:var(--muted);font-size:13px;margin:22px 0 7px}.balance{text-align:center;background:linear-gradient(145deg,#172641,#10192a);border:1px solid var(--line);border-radius:22px;padding:20px 12px;margin-top:14px;box-shadow:0 15px 40px #0005}.coinlabel{font-size:12px;color:var(--muted);letter-spacing:2px}.amount{font-size:40px;font-weight:900;color:var(--gold);margin:5px 0}.coinname{font-size:12px;color:#d7ddeb}
-.tapzone{display:flex;justify-content:center;align-items:center;padding:25px 0 17px}.coin{width:220px;height:220px;border-radius:50%;border:8px solid #dba943;background:radial-gradient(circle at 35% 28%,#fff0b7,#e8b94f 35%,#9b671b 80%);box-shadow:0 0 0 9px #e6b74a20,0 18px 50px #0009,inset 0 3px 8px #fff9;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#352309;cursor:pointer;user-select:none;transition:transform .08s}.coin:active{transform:scale(.94)}.coin b{font-size:44px;letter-spacing:-3px}.coin small{font-size:12px;font-weight:900;letter-spacing:3px}
-.energyrow{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px}.bar{height:9px;background:#26334a;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#d89b32,#ffe08b);width:100%;transition:width .2s}
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:18px}.card{background:#111c30;border:1px solid var(--line);border-radius:16px;padding:15px}.card .label{font-size:11px;color:var(--muted)}.card strong{display:block;font-size:19px;margin-top:6px}.section{margin-top:20px}.section h3{font-size:14px;margin:0 0 10px}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.action{border:1px solid var(--line);background:#111c30;color:#fff;border-radius:13px;padding:13px 5px;font-size:12px}.action span{display:block;font-size:20px;margin-bottom:5px}.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.nav button{background:transparent;border:1px solid var(--line);border-radius:12px;color:#dce4f2;padding:11px 4px;font-size:12px}.notice{font-size:11px;color:var(--muted);text-align:center;margin-top:18px;line-height:1.5}.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%);background:#f4c45e;color:#241a08;padding:10px 16px;border-radius:30px;font-weight:800;font-size:13px;display:none;white-space:nowrap}
-button{cursor:pointer}.modal{display:none;position:fixed;inset:0;background:#000a;align-items:center;justify-content:center;padding:20px}.modalbox{background:#111c30;border:1px solid var(--line);border-radius:18px;padding:20px;width:100%;max-width:400px}.modalbox h3{margin-top:0}.modalbox p{color:var(--muted);font-size:13px;line-height:1.5}.close{float:right;background:none;border:0;color:white;font-size:22px}
-</style></head>
-<body><main>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:radial-gradient(circle at 50% 10%,#1a2b48 0,#080e1b 55%);color:#f7f8fc;font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh;touch-action:manipulation}
+main{max-width:520px;margin:auto;padding:20px 17px 32px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:900;letter-spacing:2px;font-size:20px}
+.brand span{color:var(--gold)}
+.tag{font-size:10px;color:var(--gold);border:1px solid #725b2b;padding:6px 9px;border-radius:20px}
+.welcome{color:var(--muted);font-size:13px;margin:22px 0 7px}
+.balance{text-align:center;background:linear-gradient(145deg,#172641,#10192a);border:1px solid var(--line);border-radius:22px;padding:20px 12px;margin-top:14px;box-shadow:0 15px 40px #0005}
+.coinlabel{font-size:12px;color:var(--muted);letter-spacing:2px}
+.amount{font-size:40px;font-weight:900;color:var(--gold);margin:5px 0}
+.coinname{font-size:12px;color:#d7ddeb}
+.tapzone{display:flex;justify-content:center;align-items:center;padding:25px 0 17px}
+.coin{width:220px;height:220px;border-radius:50%;border:8px solid #dba943;background:radial-gradient(circle at 35% 28%,#fff0b7,#e8b94f 35%,#9b671b 80%);box-shadow:0 0 0 9px #e6b74a20,0 18px 50px #0009,inset 0 3px 8px #fff9;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#352309;cursor:pointer;user-select:none;transition:transform .05s ease}
+.coin:active{transform:scale(.92)}
+.coin b{font-size:44px;letter-spacing:-3px;pointer-events:none}
+.coin small{font-size:12px;font-weight:900;letter-spacing:3px;pointer-events:none}
+.energyrow{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px}
+.bar{height:9px;background:#26334a;border-radius:20px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#d89b32,#ffe08b);width:100%;transition:width .2s}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:18px}
+.card{background:#111c30;border:1px solid var(--line);border-radius:16px;padding:15px}
+.card .label{font-size:11px;color:var(--muted)}
+.card strong{display:block;font-size:19px;margin-top:6px}
+.section{margin-top:20px}
+.section h3{font-size:14px;margin:0 0 10px}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.action{border:1px solid var(--line);background:#111c30;color:#fff;border-radius:13px;padding:13px 5px;font-size:12px}
+.action span{display:block;font-size:20px;margin-bottom:5px}
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.nav button{background:transparent;border:1px solid var(--line);border-radius:12px;color:#dce4f2;padding:11px 4px;font-size:12px}
+.notice{font-size:11px;color:var(--muted);text-align:center;margin-top:18px;line-height:1.5}
+.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%);background:#f4c45e;color:#241a08;padding:10px 16px;border-radius:30px;font-weight:800;font-size:13px;display:none;white-space:nowrap;z-index:100}
+button{cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:#000a;align-items:center;justify-content:center;padding:20px;z-index:99}
+.modalbox{background:#111c30;border:1px solid var(--line);border-radius:18px;padding:20px;width:100%;max-width:400px}
+.modalbox h3{margin-top:0}
+.modalbox p{color:var(--muted);font-size:13px;line-height:1.5;white-space:pre-wrap}
+.close{float:right;background:none;border:0;color:white;font-size:22px}
+</style>
+</head>
+<body>
+<main>
 <header class="top"><div class="brand">WALEN <span>TAP</span></div><div class="tag">EARLY ACCESS</div></header>
 <div class="welcome" id="welcome">Welcome, Player</div>
 <section class="balance"><div class="coinlabel">YOUR BALANCE</div><div class="amount" id="coins">0</div><div class="coinname">WALEN COIN</div></section>
@@ -26,26 +62,152 @@ button{cursor:pointer}.modal{display:none;position:fixed;inset:0;background:#000
 </div></section>
 <div class="nav"><button id="tasks">📋 Tasks</button><button id="upgrade">🚀 Upgrade</button><button id="wallet">💎 Token</button></div>
 <div class="notice">WALEN COIN is currently an in-game points system.<br>It has no cash value and is not a tradable cryptocurrency.</div>
-</main><div class="toast" id="toast"></div>
+</main>
+<div class="toast" id="toast"></div>
 <div class="modal" id="modal"><div class="modalbox"><button class="close" id="close">×</button><h3 id="modalTitle">WALEN TAP</h3><p id="modalText"></p></div></div>
+
 <script>
-const tg=window.Telegram?.WebApp; tg?.ready(); tg?.expand();
-const initData=tg?.initData||"";
-let player=null, referralCount=0, busy=false;
-const $=id=>document.getElementById(id);
-function toast(s){$("toast").textContent=s;$("toast").style.display="block";setTimeout(()=>$("toast").style.display="none",1800)}
-function modal(title,text){$("modalTitle").textContent=title;$("modalText").textContent=text;$("modal").style.display="flex"}
-$("close").onclick=()=>$("modal").style.display="none";
-async function api(path,body){const r=await fetch("/api/"+path,{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Telegram-Init-Data":initData},body:body?JSON.stringify(body):undefined});const d=await r.json();if(!r.ok)throw new Error(d.error||"Request failed");return d}
-function render(){if(!player)return;$("welcome").textContent="Welcome, "+(player.firstName||"Player");$("coins").textContent=Number(player.coins).toLocaleString();$("energyText").textContent=player.energy+" / "+player.maxEnergy;$("energyBar").style.width=(player.energy/player.maxEnergy*100)+"%";$("power").textContent="+"+player.tapPower+" / tap";$("refs").textContent=referralCount+" friends"}
-async function start(){if(!initData){modal("Open in Telegram","For secure sign-in, open this Mini App using the WALEN TAP bot in Telegram. Browser preview mode is not authenticated.");return}
-try{const d=await api("start",{startParam:tg?.initDataUnsafe?.start_param||""});player=d.player;referralCount=d.referralCount||0;render();setInterval(async()=>{if(player&&player.energy<player.maxEnergy){player.energy=Math.min(player.maxEnergy,player.energy+1);render()}},3000)}catch(e){modal("Connection error",e.message)}}
-$("tap").onclick=async()=>{if(!player||busy)return;if(player.energy<1){toast("Energy is empty. Wait to recharge.");return}busy=true;try{const d=await api("tap",{taps:1});player=d.player;render();}catch(e){toast(e.message)}finally{busy=false}};
-$("daily").onclick=async()=>{try{const d=await api("daily",{});player=d.player;render();toast("+1,000 WALEN COIN")}catch(e){toast(e.message)}};
-$("invite").onclick=()=>{const bot=location.origin;const username=window.WALEN_BOT_USERNAME||"";const link=username?`https://t.me/${username}?startapp=ref_${player?.id}`:"";if(link&&tg?.openTelegramLink){tg.openTelegramLink("https://t.me/share/url?url="+encodeURIComponent(link)+"&text="+encodeURIComponent("Join me on WALEN TAP!"))}else modal("Invite friends","Set BOT_USERNAME in the server .env file and deploy the app. Your personal referral link will then be available.")}
-$("rank").onclick=async()=>{try{const d=await api("leaderboard");modal("🏆 Leaderboard",d.leaders.map((x,i)=>`${i+1}. ${x.first_name} — ${Number(x.coins).toLocaleString()} WC`).join("\n")||"No players yet.")}catch(e){toast(e.message)}};
-$("tasks").onclick=()=>modal("Tasks","Daily missions and verified social tasks are planned for the next release. Never reward users for unverified actions.");
-$("upgrade").onclick=()=>modal("Upgrades","Upgrade cards are planned for the next release. The backend currently keeps tap power ready for future upgrade logic.");
-$("wallet").onclick=()=>modal("WALEN COIN","Token wallet integration is not enabled. WALEN COIN is only an in-game points balance for now. A real token requires a separate token design, legal review, chain selection and secure wallet integration.");
+const tg = window.Telegram?.WebApp; 
+tg?.ready(); 
+tg?.expand();
+const initData = tg?.initData || "";
+let player = null, referralCount = 0;
+let pendingTaps = 0, sendTapTimer = null;
+
+const $ = id => document.getElementById(id);
+
+function toast(s){
+  $("toast").textContent = s;
+  $("toast").style.display = "block";
+  setTimeout(() => $("toast").style.display = "none", 1800);
+}
+
+function modal(title, text){
+  $("modalTitle").textContent = title;
+  $("modalText").textContent = text;
+  $("modal").style.display = "flex";
+}
+
+$("close").onclick = () => $("modal").style.display = "none";
+
+async function api(path, body){
+  const r = await fetch("/api/" + path, {
+    method: body ? "POST" : "GET",
+    headers: { "Content-Type": "application/json", "X-Telegram-Init-Data": initData },
+    body: body ? JSON.stringify(body) : undefined
+  });
+  const d = await r.json();
+  if(!r.ok) throw new Error(d.error || "Request failed");
+  return d;
+}
+
+function render(){
+  if(!player) return;
+  $("welcome").textContent = "Welcome, " + (player.firstName || "Player");
+  $("coins").textContent = Number(player.coins).toLocaleString();
+  $("energyText").textContent = player.energy + " / " + player.maxEnergy;
+  $("energyBar").style.width = (player.energy / player.maxEnergy * 100) + "%";
+  $("power").textContent = "+" + player.tapPower + " / tap";
+  $("refs").textContent = referralCount + " friends";
+}
+
+async function start(){
+  if(!initData){
+    modal("Open in Telegram", "For secure sign-in, open this Mini App using the WALEN TAP bot in Telegram.");
+    return;
+  }
+  try {
+    const d = await api("start", { startParam: tg?.initDataUnsafe?.start_param || "" });
+    player = d.player;
+    referralCount = d.referralCount || 0;
+    render();
+    
+    // Energy Auto-Recharge (Front-end local tick)
+    setInterval(() => {
+      if(player && player.energy < player.maxEnergy){
+        player.energy = Math.min(player.maxEnergy, player.energy + 1);
+        render();
+      }
+    }, 3000);
+  } catch(e) {
+    modal("Connection error", e.message);
+  }
+}
+
+// Saffisaan Tap gochuu (Optimistic Batching)
+function handleTap(e) {
+  if (e) e.preventDefault();
+  if (!player) return;
+  if (player.energy < 1) {
+    toast("Energy is empty. Wait to recharge.");
+    return;
+  }
+
+  // 1. Optimistic Updates (Yeruma sana UI irratti dabali)
+  player.energy -= 1;
+  player.coins += player.tapPower;
+  pendingTaps += 1;
+  render();
+
+  // 2. Debounce/Batch Server Requests (Milli-second 500 keessatti walitti qabi ergi)
+  clearTimeout(sendTapTimer);
+  sendTapTimer = setTimeout(async () => {
+    const tapsToSend = pendingTaps;
+    pendingTaps = 0;
+    try {
+      const d = await api("tap", { taps: tapsToSend });
+      // Server irraa saafii haaraa sinki gochuu
+      player.coins = d.player.coins;
+      player.energy = d.player.energy;
+      render();
+    } catch(err) {
+      toast(err.message);
+    }
+  }, 500);
+}
+
+$("tap").addEventListener("touchstart", handleTap, { passive: false });
+$("tap").addEventListener("click", (e) => {
+  // Mobile touch irraa eeguuf
+  if (e.detail !== 0) handleTap(e);
+});
+
+$("daily").onclick = async () => {
+  try {
+    const d = await api("daily", {});
+    player = d.player;
+    render();
+    toast("+1,000 WALEN COIN");
+  } catch(e) {
+    toast(e.message);
+  }
+};
+
+$("invite").onclick = () => {
+  const username = window.WALEN_BOT_USERNAME || "";
+  const link = username ? `https://t.me/${username}?startapp=ref_${player?.id}` : "";
+  if (link && tg?.openTelegramLink) {
+    tg.openTelegramLink("https://t.me/share/url?url=" + encodeURIComponent(link) + "&text=" + encodeURIComponent("Join me on WALEN TAP!"));
+  } else {
+    modal("Invite friends", "Set BOT_USERNAME on server environment variables to generate referral link.");
+  }
+};
+
+$("rank").onclick = async () => {
+  try {
+    const d = await api("leaderboard");
+    const text = d.leaders.map((x, i) => `${i + 1}. ${x.first_name} — ${Number(x.coins).toLocaleString()} WC`).join("\n");
+    modal("🏆 Leaderboard", text || "No players yet.");
+  } catch(e) {
+    toast(e.message);
+  }
+};
+
+$("tasks").onclick = () => modal("Tasks", "Daily missions are coming soon!");
+$("upgrade").onclick = () => modal("Upgrades", "Upgrades are coming soon!");
+$("wallet").onclick = () => modal("WALEN COIN", "Token wallet integration coming soon.");
+
 start();
-</script></body></html>
+</script>
+</body>
+</html>
